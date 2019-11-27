@@ -5,9 +5,12 @@ System.register([], function (_export, _context) {
 
     var _createClass, Vec2, Robot;
 
-    var n = {
-      5
+    function getStepSize() {
+      var parsed = parseInt(location.search.split('n=')[1]);
+      return (isNaN(parsed) ? 5 : parsed);
     }
+
+    var n = getStepSize();
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
