@@ -5,6 +5,10 @@ System.register([], function (_export, _context) {
 
     var _createClass, Vec2, Robot;
 
+    var n = {
+      5
+    }
+
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
             throw new TypeError("Cannot call a class as a function");
@@ -96,7 +100,7 @@ System.register([], function (_export, _context) {
 
                         var arm = this.p.clone().sub(pole);
 
-                        var rot = s == "L" ? 2 * Math.PI / 5 : -2 * Math.PI / 5;
+                        var rot = s == "L" ? 2 * Math.PI / n : -2 * Math.PI / n;
                         var halfway = arm.clone().rotate(rot / 2.0);
                         var whole = arm.clone().rotate(rot);
 
