@@ -50,7 +50,7 @@ System.register(['./coordinatesystem.js', './robot.js'], function (_export, _con
                 var i, j, k;
                 for (k = 1; k <= n; k++){
                   for (i = 0; i < initialWalk.length; i++) {
-                    var direction = (i % 2 == 0) ? "L" : "R";
+                    var direction = (i % 2 == 0) ? "R" : "L";
                     for (j = 1; j <= initialWalk[i]; j++) { r.move(direction); }
                   }
                 }
