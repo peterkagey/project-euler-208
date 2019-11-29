@@ -34,6 +34,26 @@ System.register(['./coordinatesystem.js', './robot.js'], function (_export, _con
                 paper.project.activeLayer.matrix = new paper.Matrix(t.sx, 0, 0, t.sy, t.tx, t.ty);
 
                 var r = new Robot(paper.project.activeLayer);
+                // This is a hack.
+                function getInitialWalk() {
+                  var rawString = location.search.split('w=')[1] || ""
+                  return JSON.parse("[" + rawString + "]")
+                }
+                function getStepSize() {
+                  var parsed = parseInt(location.search.split('n=')[1]);
+                  return (isNaN(parsed) ? 5 : parsed);
+                }
+
+                var n = getStepSize();
+                var initialWalk = getInitialWalk();
+
+                var i, j, k;
+                for (k = 1; k <= n; k++){
+                  for (i = 0; i < initialWalk.length; i++) {
+                    var direction = (i % 2 == 0) ? "L" : "R";
+                    for (j = 1; j <= initialWalk[i]; j++) { r.move(direction); }
+                  }
+                }
 
                 var keyboard = new paper.Tool();
                 keyboard.onKeyDown = function (event) {
