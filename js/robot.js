@@ -79,8 +79,8 @@ System.register([], function (_export, _context) {
 
                     this.p = new Vec2(0, 0);
                     this.f = new Vec2(0, 1);
-
-                    this.canvas.addChild(drawDot(this.p, "skyblue"));
+                    // TODO: It would be great if these could be toggled with a URL parameter.
+                    // this.canvas.addChild(drawDot(this.p, "skyblue"));
 
                     this.drawCurrent();
                 }
@@ -90,7 +90,7 @@ System.register([], function (_export, _context) {
                     value: function drawCurrent() {
                         this.heading.removeChildren();
 
-                        this.heading.addChild(drawDot(this.p));
+                        this.heading.addChild(drawDot(this.p, "skyblue"));
                         this.heading.addChild(drawVec(this.p, this.f));
                     }
                 }, {
@@ -114,7 +114,8 @@ System.register([], function (_export, _context) {
                         this.f.rotate(rot);
 
                         this.canvas.addChild(drawArc(before, passthrough, dest));
-                        this.canvas.addChild(drawDot(before));
+                        // TODO: It would be great if these could be toggled with a URL parameter.
+                        // this.canvas.addChild(drawDot(before));
 
                         this.drawCurrent();
                     }
